@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Rectangulo.h
- * Author:  mario
- * Modified: jueves, 31 de octubre de 2024 23:27:06
+* Author:  Joffre Gomez
+ * Modified: Sabado, 2 de noviembre de 2024 18:03:23
  * Purpose: Declaration of the class Rectangulo
  ***********************************************************************/
 

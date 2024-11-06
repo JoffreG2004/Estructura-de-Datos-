@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Fraccion.h
- * Author:  mario
- * Modified: viernes, 1 de noviembre de 2024 18:03:23
+* Author:  Joffre Gomez
+ * Modified: Sabado, 2 de noviembre de 2024 18:03:23
  * Purpose: Declaration of the class Fraccion
  ***********************************************************************/
 
