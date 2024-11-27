@@ -21,6 +21,6 @@ Nodo* Nodo::getSiguiente() {
     return siguiente;
 }
 
-void Nodo::setSiguiente(Nodo* siguiente) {
-    this->siguiente = siguiente;
+void Nodo::setSiguiente(Nodo* nodo) {
+    siguiente = nodo;
 }

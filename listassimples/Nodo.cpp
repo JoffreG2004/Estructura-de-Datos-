@@ -9,21 +9,18 @@
  * NRC :                           1978                                                *
  **************************************************************************************/
  
-#ifndef NODO_H
-#define NODO_H
+#include "nodo.h"
 
-#include <string>
+Nodo::Nodo(std::string nombre, std::string apellido) {
+    this->nombre = nombre;
+    this->apellido = apellido;
+    this->siguiente = nullptr;
+}
 
-class Nodo {
-public:
-    std::string nombre;
-    std::string apellido;
-    Nodo* siguiente;
+Nodo* Nodo::getSiguiente() {
+    return siguiente;
+}
 
-    Nodo(std::string nombre, std::string apellido);
-    Nodo* getSiguiente();
-    void setSiguiente(Nodo* nodo);
-};
-
-#endif
-
+void Nodo::setSiguiente(Nodo* siguiente) {
+    this->siguiente = siguiente;
+}

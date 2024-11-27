@@ -1,4 +1,3 @@
-
 /***************************************************************************************
  *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE                                  *
  * Proposito:                      Programa sobre lista simple                         *
@@ -9,21 +8,27 @@
  * NRC :                           1978                                                *
  **************************************************************************************/
  
-#ifndef NODO_H
-#define NODO_H
+#ifndef LISTA_H
+#define LISTA_H
 
+#include "nodo.h"
 #include <string>
 
-class Nodo {
-public:
-    std::string nombre;
-    std::string apellido;
-    Nodo* siguiente;
+class Lista {
+private:
+    Nodo* cabeza;
 
-    Nodo(std::string nombre, std::string apellido);
-    Nodo* getSiguiente();
-    void setSiguiente(Nodo* nodo);
+public:
+    Lista();
+    ~Lista();
+
+    void crear(std::string nombre, std::string apellido);
+    void mostrar();
+    void actualizar(std::string nombreViejo, std::string apellidoViejo, std::string nuevoNombre, std::string nuevoApellido);
+    void eliminar(std::string nombre, std::string apellido);
+    bool estaVacia();
+    bool correoExiste(const std::string& correo);
+    std::string generarCorreo(const std::string& nombre, const std::string& apellido);
 };
 
 #endif
-

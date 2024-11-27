@@ -22,8 +22,7 @@ public:
 
     Nodo(std::string nombre, std::string apellido);
     Nodo* getSiguiente();
-    void setSiguiente(Nodo* nodo);
+    void setSiguiente(Nodo* siguiente);
 };
 
 #endif
-
