@@ -9,50 +9,83 @@
  **************************************************************************************/
  
 #include <iostream>
-#include "lista.h"
+#include "Validaciones.h"
+
+using namespace std;
 
 int main() {
-    Lista lista;
+    Validaciones<string> validaciones;
+    
+    string primerNombre, segundoNombre, primerApellido, segundoApellido;
+    
     int opcion;
-
     do {
-        std::cout << "\nMenú de Opciones:\n";
-        std::cout << "1. Crear usuario y correo\n";
-        std::cout << "2. Mostrar lista de usuarios\n";
-        std::cout << "3. Salir\n";
-        std::cout << "Ingrese una opción: ";
-        std::cin >> opcion;
-
+        system("cls");
+        cout << "********** MENU PRINCIPAL **********\n";
+        cout << "1. Ingresar datos\n";
+        cout << "2. Mostrar datos\n";
+        cout << "3. Salir\n";
+        cout << "Ingrese una opción: ";
+        cin >> opcion;
+        cin.ignore();  // Limpiar el buffer de entrada
+        
         switch (opcion) {
             case 1: {
-                std::string nombre, apellido, correo, correoFinal;
-                int contador = 1;
-
-                std::cout << "Ingrese el nombre: ";
-                std::cin >> nombre;
-                std::cout << "Ingrese el apellido: ";
-                std::cin >> apellido;
-
-                correo = lista.generarCorreo(nombre, apellido);
-                correoFinal = correo;
-
-                while (lista.correoExiste(correoFinal)) {
-                    correoFinal = correo.substr(0, correo.find("@")) + std::to_string(contador) + "@espe.edu.ec";
-                    contador++;
+                system("cls");
+                cout << "********** INGRESO DE DATOS **********\n";
+                
+                // Ingresar el primer nombre
+                primerNombre = validaciones.ingresar("Ingrese el primer nombre: ", "string");
+                
+                // Ingresar el segundo nombre
+                segundoNombre = validaciones.ingresar("Ingrese el segundo nombre: ", "string");
+                
+                // Validar que los nombres no contengan palabras prohibidas
+                while (validaciones.esPalabraProhibida(primerNombre) || validaciones.esPalabraProhibida(segundoNombre)) {
+                    cout << "El nombre contiene una palabra prohibida. Por favor ingrese otro nombre.\n";
+                    primerNombre = validaciones.ingresar("Ingrese el primer nombre: ", "string");
+                    segundoNombre = validaciones.ingresar("Ingrese el segundo nombre: ", "string");
                 }
-
-                lista.crear(nombre, apellido);
-                std::cout << "Correo generado: " << correoFinal << std::endl;
+                
+                // Ingresar el primer apellido
+                primerApellido = validaciones.ingresar("Ingrese el primer apellido: ", "string");
+                
+                // Ingresar el segundo apellido
+                segundoApellido = validaciones.ingresar("Ingrese el segundo apellido: ", "string");
+                
+                // Validar que los apellidos no contengan palabras prohibidas
+                while (validaciones.esPalabraProhibida(primerApellido) || validaciones.esPalabraProhibida(segundoApellido)) {
+                    cout << "El apellido contiene una palabra prohibida. Por favor ingrese otro apellido.\n";
+                    primerApellido = validaciones.ingresar("Ingrese el primer apellido: ", "string");
+                    segundoApellido = validaciones.ingresar("Ingrese el segundo apellido: ", "string");
+                }
+                
+                cout << "\nDatos ingresados correctamente.\n";
+                cout << "Primer nombre: " << primerNombre << "\n";
+                cout << "Segundo nombre: " << segundoNombre << "\n";
+                cout << "Primer apellido: " << primerApellido << "\n";
+                cout << "Segundo apellido: " << segundoApellido << "\n";
+                
+                system("pause");
                 break;
             }
-            case 2:
-                lista.mostrar();
+            
+            case 2: {
+                system("cls");
+                cout << "********** MOSTRAR DATOS **********\n";
+                // Aquí iría el código para mostrar los datos almacenados, si los estuvieras guardando en una lista o algo similar.
+                
+                system("pause");
                 break;
+            }
+            
             case 3:
-                std::cout << "Saliendo...\n";
+                cout << "Saliendo del programa...\n";
                 break;
+                
             default:
-                std::cout << "Opción no válida.\n";
+                cout << "Opción inválida. Intente de nuevo.\n";
+                system("pause");
         }
     } while (opcion != 3);
 

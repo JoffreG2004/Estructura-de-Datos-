@@ -1,4 +1,3 @@
-
 /***************************************************************************************
  *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE                                  *
  * Proposito:                      Programa sobre lista simple                         *
@@ -8,19 +7,29 @@
  * Materia:                        Estructura de datos                                 *
  * NRC :                           1978                                                *
  **************************************************************************************/
- 
-#include "nodo.h"
+// Nodo.cpp
+#include "Nodo.h"
 
-Nodo::Nodo(std::string nombre, std::string apellido) {
-    this->nombre = nombre;
-    this->apellido = apellido;
-    this->siguiente = nullptr;
+template <typename T>
+Nodo<T>::Nodo(T _dato) {
+    dato = _dato;
+    siguiente = NULL;
 }
 
-Nodo* Nodo::getSiguiente() {
+template <typename T>
+T Nodo<T>::getDato() {
+    return dato;
+}
+
+template <typename T>
+Nodo<T>* Nodo<T>::getSiguiente() {
     return siguiente;
 }
 
-void Nodo::setSiguiente(Nodo* nodo) {
-    siguiente = nodo;
+template <typename T>
+void Nodo<T>::setSiguiente(Nodo<T>* _siguiente) {
+    siguiente = _siguiente;
 }
+
+// Necesitamos instanciar la plantilla para el tipo que usaremos
+template class Nodo<std::string>;

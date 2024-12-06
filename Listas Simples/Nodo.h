@@ -1,4 +1,3 @@
-
 /***************************************************************************************
  *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE                                  *
  * Proposito:                      Programa sobre lista simple                         *
@@ -8,22 +7,36 @@
  * Materia:                        Estructura de datos                                 *
  * NRC :                           1978                                                *
  **************************************************************************************/
- 
-#ifndef NODO_H
-#define NODO_H
-
-#include <string>
-
+// Nodo.h
+template <typename T>
 class Nodo {
 public:
-    std::string nombre;
-    std::string apellido;
-    Nodo* siguiente;
-
-    Nodo(std::string nombre, std::string apellido);
-    Nodo* getSiguiente();
-    void setSiguiente(Nodo* nodo);
+    Nodo(T _dato);
+    T getDato();
+    Nodo<T>* getSiguiente();
+    void setSiguiente(Nodo<T>* _siguiente);
+private:
+    T dato;
+    Nodo<T>* siguiente;
 };
 
-#endif
+template <typename T>
+Nodo<T>::Nodo(T _dato) {
+    dato = _dato;
+    siguiente = NULL;
+}
 
+template <typename T>
+T Nodo<T>::getDato() {
+    return dato;
+}
+
+template <typename T>
+Nodo<T>* Nodo<T>::getSiguiente() {
+    return siguiente;
+}
+
+template <typename T>
+void Nodo<T>::setSiguiente(Nodo<T>* _siguiente) {
+    siguiente = _siguiente;
+}
