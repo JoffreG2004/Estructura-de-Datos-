@@ -37,24 +37,22 @@ primero->setAnterior(ultimo);
 }
 
 template <typename T>
-void ListaCircularDoble<T>::mostrar(Nodo<T> *aux)
-{
-if(aux == nullptr){
-
-cout <<"La lista esta vacia"<<endl;
-    return ;
+void ListaCircularDoble<T>::mostrar(Nodo<T>* primero) {
+    if (primero == nullptr) {
+        std::cout << "La lista está vacía." << std::endl;
+        return;
+    }
+    
+    Nodo<T>* aux = primero;
+    
+  
+    std::cout << aux->getDato() << std::endl;
+    
+  
+    aux = aux->getSiguiente();
+    while (aux != primero) {  
+        cout << aux->getDato() << endl;
+        aux = aux->getSiguiente();
+    }
 }
-if( aux->getSiguiente() == primero->getSiguiente){
 
-return ;
-}
-
-else{
-
-cout<< aux->getDato() <<"<->" <<endl;
-
- mostrar(aux->getSiguiente());
-
-}
-
-}

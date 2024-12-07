@@ -4,10 +4,14 @@
 template <typename T>
 class ListaCircularDoble {
 private:
-    Nodo<T>* primero;   
+      
     Nodo<T>* ultimo;    
-
+    Nodo<T>* primero;
 public:
+     
+  Nodo<T>* getPrimero() {
+        return primero;
+    }
     ListaCircularDoble();     
     void insertar(T dato);    
     void buscarPorPlaca(T dato);
@@ -16,4 +20,5 @@ public:
     void mostrar(Nodo<T> *aux);           
 };
 
+#include "Lista.cpp"
 

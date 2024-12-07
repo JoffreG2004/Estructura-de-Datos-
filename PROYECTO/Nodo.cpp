@@ -8,13 +8,14 @@ Nodo<T>::Nodo(T dato) {
 }
 
 template <typename T>
-void Nodo<T>::setDato(T dato) {
-    this->dato = dato;
+T Nodo<T>::getDato()
+{
+    return dato;
 }
 
 template <typename T>
-T Nodo<T>::getDato() {
-    return this->dato;
+void Nodo<T>::setDato(T dato) {
+    this->dato = dato;
 }
 
 template <typename T>

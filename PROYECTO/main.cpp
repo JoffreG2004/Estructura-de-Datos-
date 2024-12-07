@@ -1,17 +1,17 @@
 #include <iostream>
-#include "coche.cpp"
-#include "Lista.cpp"
 #include "Coche.h"
+#include "Lista.h"
 
-int main (){
 
- Coche nuevoCoche = InsertarDatos();
+using namespace std;
 
-  ListaCircularDoble<Coche> lista;
 
- Coche coche =InsertarDatos();
+int main() {
 
-     lista.insertar(coche);
+    ListaCircularDoble<Coche> listaCoches;  
+
+    Coche coche;
+    coche.menu(listaCoches);
 
     return 0;
 }
